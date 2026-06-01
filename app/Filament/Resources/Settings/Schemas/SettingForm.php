@@ -25,7 +25,8 @@ class SettingForm
                             ->label('Nilai')
                             ->required()
                             ->columnSpanFull(),
-                    ]),
+                    ])
+                    ->columnSpanFull(),
             ]);
     }
 }

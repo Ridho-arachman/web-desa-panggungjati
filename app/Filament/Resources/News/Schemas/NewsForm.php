@@ -22,24 +22,40 @@ class NewsForm
                         TextInput::make('title')
                             ->label('Judul')
                             ->required()
-                            ->live(onBlur: true)
+                            ->live(debounce: 300)
                             ->afterStateUpdated(fn($set, $state) => $set('slug', Str::slug($state))),
 
                         TextInput::make('slug')
                             ->label('Slug')
                             ->required()
-                            ->unique(ignoreRecord: true),
+                            ->unique(ignoreRecord: true)
+                            ->readonly(),
 
                         RichEditor::make('content')
                             ->label('Isi Berita')
                             ->required()
                             ->columnSpanFull(),
 
+                        // Gambar utama (bisa tetap di tabel news)
                         FileUpload::make('image')
-                            ->label('Gambar')
+                            ->label('Gambar Utama')
                             ->image()
                             ->directory('berita')
-                            ->columnSpanFull(),
+                            ->columnSpanFull()
+                            ->maxSize(2048)
+                            ->disk('public'),
+
+                        // Banyak gambar (maksimal 5)
+                        FileUpload::make('images')
+                            ->label('Galeri (maks. 5 gambar)')
+                            ->image()
+                            ->directory('berita/galeri')
+                            ->multiple()
+                            ->maxFiles(5)
+                            ->reorderable()
+                            ->columnSpanFull()
+                            ->maxSize(2048)
+                            ->disk('public'),
                     ])
                     ->columns(2),
                 Section::make('Status')
@@ -56,7 +72,9 @@ class NewsForm
 
                         DateTimePicker::make('published_at')
                             ->label('Tanggal Publish')
-                            ->visible(fn($get) => $get('status') === 'published'),
+                            ->visible(fn($get) => $get('status') === 'published')
+                            ->default(now())
+                            ->time(true),
                     ])
                     ->columns(2),
             ]);

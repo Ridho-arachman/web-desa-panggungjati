@@ -18,7 +18,10 @@ class NewsTable
             ->columns([
                 ImageColumn::make('image')
                     ->circular()
-                    ->size(40),
+                    ->size(40)
+                    ->label('Gambar')
+                    ->disk('public')
+                    ->defaultImageUrl('/images/default-news.png'),
 
                 TextColumn::make('title')
                     ->label('Judul')

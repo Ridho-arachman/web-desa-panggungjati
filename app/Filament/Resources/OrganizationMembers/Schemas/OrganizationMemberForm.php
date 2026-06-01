@@ -30,7 +30,10 @@ class OrganizationMemberForm
                         FileUpload::make('photo')
                             ->label('Foto')
                             ->image()
-                            ->directory('organisasi'),
+                            ->directory('organisasi')
+                            ->maxSize(1024)
+                            ->nullable()
+                            ->disk('public'),
 
                         Select::make('parent_id')
                             ->label('Atasan Langsung')
@@ -43,7 +46,7 @@ class OrganizationMemberForm
                             ->numeric()
                             ->default(0),
                     ])
-                    ->columns(2),
+                    ->columnSpanFull(),
             ]);
     }
 }

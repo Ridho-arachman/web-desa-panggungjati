@@ -18,7 +18,10 @@ class OrganizationMembersTable
             ->columns([
                 ImageColumn::make('photo')
                     ->circular()
-                    ->size(40),
+                    ->size(40)
+                    ->label('Foto')
+                    ->disk('public')
+                    ->defaultImageUrl('/images/default-avatar.png'),
 
                 TextColumn::make('name')
                     ->label('Nama')

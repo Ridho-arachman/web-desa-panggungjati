@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 
 class OrganizationMember extends Model
 {
@@ -15,6 +16,15 @@ class OrganizationMember extends Model
         'parent_id',
         'order',
     ];
+
+    protected static function booted()
+    {
+        static::deleting(function (OrganizationMember $member) {
+            if ($member->photo) {
+                Storage::disk('public')->delete($member->photo);
+            }
+        });
+    }
 
     public function parent(): BelongsTo
     {
