@@ -19,11 +19,11 @@ class LetterTypeResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 
-    protected static ?string $navigationLabel = 'Jenis Surat';
+    protected static ?string $navigationLabel = 'Surat Menyurat';
 
-    protected static ?string $modelLabel = 'Jenis Surat';
+    protected static ?string $modelLabel = 'Surat Menyurat';
 
-    protected static ?string $pluralModelLabel = 'Jenis Surat';
+    protected static ?string $pluralModelLabel = 'Surat Menyurat';
 
     public static function form(Schema $schema): Schema
     {

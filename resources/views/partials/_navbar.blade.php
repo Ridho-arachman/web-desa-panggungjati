@@ -20,6 +20,7 @@
             {{-- Menu Desktop --}}
             <div class="hidden md:flex items-center space-x-6">
                 <a href="{{ url('/') }}" class="text-gray-700 hover:text-blue-700 font-medium transition-colors {{ request()->is('/') ? 'text-blue-700 border-b-2 border-blue-700' : '' }}">Beranda</a>
+               <a href="{{ url('/tentang') }}" class="text-gray-700 hover:text-blue-700 font-medium transition-colors {{ request()->is('tentang*') ? 'text-blue-700 border-b-2 border-blue-700' : '' }}">Tentang Kelurahan</a>
                 <a href="{{ url('/surat') }}" class="text-gray-700 hover:text-blue-700 font-medium transition-colors {{ request()->is('surat*') ? 'text-blue-700 border-b-2 border-blue-700' : '' }}">Layanan Surat</a>
                 <a href="{{ url('/berita') }}" class="text-gray-700 hover:text-blue-700 font-medium transition-colors {{ request()->is('berita*') ? 'text-blue-700 border-b-2 border-blue-700' : '' }}">Berita</a>
                 <a href="{{ url('/struktur') }}" class="text-gray-700 hover:text-blue-700 font-medium transition-colors {{ request()->is('struktur*') ? 'text-blue-700 border-b-2 border-blue-700' : '' }}">Struktur Organisasi</a>
@@ -39,6 +40,7 @@
         {{-- Menu Mobile --}}
         <div id="mobile-menu" class="hidden md:hidden pb-4 pt-2 space-y-1">
             <a href="{{ url('/') }}" class="block py-2 px-4 text-gray-700 rounded-lg hover:bg-blue-50 transition {{ request()->is('/') ? 'text-blue-700 font-semibold bg-blue-50' : '' }}">Beranda</a>
+            <a href="{{ url('/tentang') }}" class="block py-2 px-4 text-gray-700 rounded-lg hover:bg-blue-50 transition {{ request()->is('tentang*') ? 'text-blue-700 font-semibold bg-blue-50' : '' }}">Tentang Kelurahan</a>
             <a href="{{ url('/surat') }}" class="block py-2 px-4 text-gray-700 rounded-lg hover:bg-blue-50 transition {{ request()->is('surat*') ? 'text-blue-700 font-semibold bg-blue-50' : '' }}">Layanan Surat</a>
             <a href="{{ url('/berita') }}" class="block py-2 px-4 text-gray-700 rounded-lg hover:bg-blue-50 transition {{ request()->is('berita*') ? 'text-blue-700 font-semibold bg-blue-50' : '' }}">Berita</a>
             <a href="{{ url('/struktur') }}" class="block py-2 px-4 text-gray-700 rounded-lg hover:bg-blue-50 transition {{ request()->is('struktur*') ? 'text-blue-700 font-semibold bg-blue-50' : '' }}">Struktur Organisasi</a>

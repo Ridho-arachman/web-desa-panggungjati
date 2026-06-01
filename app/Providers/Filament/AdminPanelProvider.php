@@ -27,7 +27,9 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
-            ->login()
+            ->login(Login::class)             // 🟢 Custom login page
+            ->passwordReset()                 // 🟢 Lupa password
+            ->profile(isSimple: true)
             ->colors([
                 'primary' => Color::Amber,
             ])

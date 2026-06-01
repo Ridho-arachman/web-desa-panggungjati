@@ -2,8 +2,7 @@
 
 namespace App\Filament\Resources\LetterTypeResource\Schemas;
 
-
-use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Section;
@@ -22,16 +21,17 @@ class LetterTypeForm
                             ->label('Nama Surat')
                             ->required()
                             ->maxLength(255)
-                            ->live(onBlur: true)
+                            ->live(debounce: 300)
                             ->afterStateUpdated(fn(callable $set, $state) => $set('slug', Str::slug($state))),
 
                         TextInput::make('slug')
                             ->label('Slug')
                             ->required()
                             ->unique(ignoreRecord: true)
-                            ->maxLength(255),
+                            ->maxLength(255)
+                            ->readonly(),
 
-                        Textarea::make('description')
+                        RichEditor::make('description')
                             ->label('Deskripsi')
                             ->maxLength(65535)
                             ->columnSpanFull(),
@@ -47,7 +47,7 @@ class LetterTypeForm
                             ->default(true)
                             ->inline(false),
                     ])
-                    ->columns(2),
+                    ->columnSpanFull(),
             ]);
     }
 }

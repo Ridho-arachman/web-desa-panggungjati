@@ -23,8 +23,16 @@ Route::get('/', function () {
     return view('public.home', compact('latestNews', 'lurah'));
 })->name('home');
 
-Route::get('/surat', function () {
-    $letterTypes = LetterType::where('is_active', true)->get();
+Route::get('/surat', function (Request $request) {
+    $search = $request->input('search');
+    $letterTypes = LetterType::where('is_active', true)
+        ->when($search, function ($query, $search) {
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%");
+            });
+        })
+        ->paginate(6);  // 6 surat per halaman
+
     return view('public.surat', compact('letterTypes'));
 })->name('surat');
 
@@ -71,3 +79,16 @@ Route::get('/struktur', function () {
     $members = OrganizationMember::with('children')->get();
     return view('public.struktur', compact('members'));
 })->name('struktur');
+
+Route::get('/tentang', function () {
+    $tentangDesc = \App\Models\Setting::where('key', 'tentang_description')->value('value') ?? '';
+    $visi = \App\Models\Setting::where('key', 'visi')->value('value') ?? '';
+    $misi = \App\Models\Setting::where('key', 'misi')->value('value') ?? '';
+    $alamat = \App\Models\Setting::where('key', 'alamat')->value('value') ?? '';
+
+    $lurah = \App\Models\OrganizationMember::where('position', 'like', '%lurah%')
+        ->orWhere('position', 'like', '%kepala desa%')
+        ->first();
+
+    return view('public.tentang', compact('tentangDesc', 'visi', 'misi', 'alamat', 'lurah'));
+})->name('tentang');
