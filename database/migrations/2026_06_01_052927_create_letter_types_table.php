@@ -13,8 +13,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->text('description')->nullable();
-            $table->string('gform_link');               // link Google Form
-            $table->boolean('is_active')->default(true); // aktif/tidak
+            $table->string('gform_link');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
