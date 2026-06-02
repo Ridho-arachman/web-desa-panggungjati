@@ -1,58 +1,176 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🏛️ Web Kelurahan Panggungjati
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20?style=flat&logo=laravel)
+![Filament](https://img.shields.io/badge/Filament-3.x-FFB300?style=flat&logo=laravel)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.x-06B6D4?style=flat&logo=tailwindcss)
+![PHP](https://img.shields.io/badge/PHP-8.1+-777BB4?style=flat&logo=php)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat&logo=mysql)
 
-## About Laravel
+**Web resmi Kelurahan Panggungjati, Kecamatan Taktakan, Kota Serang, Banten.**  
+Dibangun untuk memudahkan pelayanan administrasi, penyebaran informasi, dan partisipasi warga secara digital.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ Fitur Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🔗 Halaman Publik
 
-## Learning Laravel
+- **Beranda** – Hero dinamis, statistik real‑time, berita terbaru.
+- **Tentang Kelurahan** – Sejarah, visi & misi, profil lengkap, peta Google Maps, alamat.
+- **Layanan Surat** – Daftar surat aktif, pencarian, detail persyaratan, tautan Google Form.
+- **Berita** – Daftar berita, detail artikel, galeri foto, berita terkait.
+- **Struktur Organisasi** – Tampilan hierarkis perangkat kelurahan.
+- **Masukan Warga** – Form aspirasi dengan notifikasi toast.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 🛡️ Panel Admin (Filament)
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Manajemen Surat** – CRUD jenis surat, deskripsi kaya, tautan Google Form.
+- **Manajemen Berita** – CRUD berita, jadwal tayang, galeri gambar (maks. 5 foto).
+- **Struktur Organisasi** – Atur hierarki perangkat kelurahan.
+- **Masukan Warga** – Lihat, tanggapi, dan ubah status masukan.
+- **Pengaturan** – Kelola nama kelurahan, visi, misi, sejarah, profil, peta, dll.
+- **Autentikasi** – Login aman, reset password, profil akun.
+- **Dashboard** – Statistik jumlah surat, berita, masukan, dan tabel ringkasan data terbaru.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+---
 
-## Agentic Development
+## 🧰 Teknologi
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+| Bidang         | Teknologi                                 |
+| -------------- | ----------------------------------------- |
+| Backend        | Laravel 11, PHP 8.3                       |
+| Frontend       | Blade, TailwindCSS 4, Alpine.js (minimal) |
+| Admin Panel    | Filament 3 (Livewire + Alpine.js)         |
+| Database       | MySQL / MariaDB                           |
+| Maps           | Google Maps Embed                         |
+| Form Eksternal | Google Forms                              |
+| Deployment     | Nginx / Apache, Ngrok untuk testing       |
+
+---
+
+## 📋 Persyaratan Sistem
+
+- PHP ≥ 8.1
+- Composer 2
+- Node.js ≥ 18 + NPM
+- MySQL 8.0 / MariaDB 10.6
+- Git
+- (Opsional) Ngrok untuk testing sementara
+
+---
+
+## 🚀 Instalasi
+
+### 1. Clone repositori
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/username/kelurahan-panggungjati.git
+cd kelurahan-panggungjati
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 2. Install dependensi PHP
 
-## Contributing
+```bash
+composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. Salin file environment
 
-## Code of Conduct
+```bash
+cp .env.example .env
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 4. Generate application key
 
-## Security Vulnerabilities
+```bash
+php artisan key:generate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 5. Konfigurasi database di `.env`
 
-## License
+```
+DB_DATABASE=kelurahan_panggungjati
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 6. Jalankan migrasi dan seed data awal
+
+```bash
+php artisan migrate
+```
+
+### 7. Install dan kompilasi aset frontend
+
+```bash
+npm install
+npm run build
+```
+
+### 8. Buat symbolic link untuk storage
+
+```bash
+php artisan storage:link
+```
+
+### 9. Buat user admin pertama
+
+```bash
+php artisan make:filament-user
+```
+
+### 10. Jalankan server lokal
+
+```bash
+php artisan serve
+```
+
+Akses **halaman publik**: [http://localhost:8000](http://localhost:8000)  
+Akses **panel admin**: [http://localhost:8000/admin](http://localhost:8000/admin)
+
+---
+
+## ⚙️ Konfigurasi Tambahan
+
+- **Reset Password**: Pastikan `.env` terisi kredensial SMTP (lihat komentar di `.env`).
+- **Google Maps**: Dapatkan kode embed dari Google Maps, lalu tambahkan melalui panel admin (Pengaturan → key `gmaps_embed`).
+- **Google Forms**: Setiap jenis surat memiliki kolom `gform_link` yang bisa diisi tautan formulir.
+
+---
+
+## 📁 Struktur Proyek (ringkasan)
+
+```
+├── app
+│   ├── Filament/Resources    ← Admin resource (CRUD)
+│   ├── Filament/Widgets      ← Widget dashboard
+│   ├── Models/               ← Eloquent models
+│   └── ...
+├── database/migrations       ← Skema database
+├── public/
+│   └── images/               ← Logo, pattern, dll.
+├── resources/
+│   ├── views/
+│   │   ├── layouts/          ← Layout publik
+│   │   ├── partials/         ← Navbar, footer
+│   │   └── public/           ← Halaman warga
+│   └── css/app.css           ← Tailwind custom
+└── routes/web.php            ← Routing publik & admin
+```
+
+---
+
+## 🤝 Kontributor
+
+- **Kepala Kelurahan** – Heruji, S.Pd.I, M.Si
+- **Tim Pengembang** – [Nama Tim/Instansi]
+- **Warga Panggungjati** – Masukan dan aspirasi Anda adalah fondasi proyek ini.
+
+---
+
+## 📄 Lisensi
+
+Proyek ini dibangun untuk **Kelurahan Panggungjati** dan dapat digunakan sebagai referensi atau dasar pengembangan sistem informasi desa/kelurahan lainnya.  
+Lisensi: **MIT** (bebas digunakan dengan tetap mencantumkan sumber).
+
+---
